@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+
+  jpa:
+    database-platform: org.hibernate.dialect.PosgreSQLInnoDBDialect
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        global_quoted_identifiers:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+        format_sql: true
+        type:
+          descriptor:
+            java:
+            UUID: org.hibernate:type.UUIDCharType
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1000MB
+      max-request-size: 100MB
+  mvc:
+    async:
+      request-timeout: 3600000
+
+
+server:
+  port: 8080
+  error:
+    path: /user/error
+    whitelabel:
+      enabled: false
+
+
